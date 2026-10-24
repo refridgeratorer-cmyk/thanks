@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1017" />
+  <title>The Door Was Left Open</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+  <div class="grain"></div>
+
+  <main id="app" class="app stage-0">
+    <section id="entrance" class="screen active" aria-labelledby="entrance-title">
+      <div class="entrance-card">
+        <p class="eyebrow">A quiet place</p>
+        <h1 id="entrance-title">The door was left open.</h1>
+        <div class="rule"></div>
+        <p>You found the door.</p>
+        <p>It was left slightly open.</p>
+        <p>Some things were never said out loud.</p>
+        <p>Maybe this is the only way left to say them.</p>
+        <button class="primary-btn" data-action="enter">Enter</button>
+      </div>
+    </section>
+
+    <section id="hall" class="screen" aria-labelledby="hall-title">
+      <div class="maze-shell">
+        <header class="maze-topbar">
+          <div>
+            <p class="eyebrow" id="maze-label">THE HALL</p>
+            <h2 id="hall-title">A corridor with no straight way through.</h2>
+          </div>
+          <div class="maze-progress" id="maze-progress" aria-live="polite"></div>
+        </header>
+
+        <div class="maze-intro" id="hall-copy"></div>
+
+        <div class="maze-wrap">
+          <div id="maze" class="maze" tabindex="0" aria-label="A maze. Use the arrow keys or WASD to move."></div>
+        </div>
+
+        <div class="maze-footer">
+          <p class="maze-controls">WASD / Arrow keys to move <span>•</span> 5 steps per minute <span>•</span> Enter to open a door <span>•</span> <span id="movement-status">Next step available now.</span></p>
+          <div id="maze-action" class="maze-action" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="room" class="screen" aria-labelledby="room-title">
+      <div class="screen-inner room-layout">
+        <button class="back-btn" data-action="hall">← Back to the hall</button>
+        <div id="room-icon" class="room-icon" aria-hidden="true"></div>
+        <p id="room-kicker" class="eyebrow"></p>
+        <h2 id="room-title"></h2>
+        <div id="room-description" class="room-copy"></div>
+        <div id="room-action-area" class="room-action-area"></div>
+      </div>
+    </section>
+
+    <section id="locks" class="screen" aria-labelledby="locks-title">
+      <div class="screen-inner lock-room-layout">
+        <button class="back-btn" data-action="hall">← Back to the hall</button>
+        <p class="eyebrow">THE LOCK ROOM</p>
+        <h2 id="locks-title">Three locks wait in the quiet.</h2>
+        <p class="lock-intro">Nothing here asks you to hurry. Open what you can. Come back when you're ready.</p>
+
+        <div class="locks" id="locks-container">
+          <article class="lock-panel" data-lock="1">
+            <div class="lock-top"><span>LOCK 01</span><span class="lock-state">CLOSED</span></div>
+            <h3>The sharp part</h3>
+            <p>Something from the argument is still here.</p>
+            <button class="primary-btn lock-btn" data-lock-open="1">Try Key 1</button>
+            <div class="lock-content" hidden></div>
+          </article>
+
+          <article class="lock-panel" data-lock="2">
+            <div class="lock-top"><span>LOCK 02</span><span class="lock-state">CLOSED</span></div>
+            <h3>The distance</h3>
+            <p>Something has been waiting in the silence.</p>
+            <button class="primary-btn lock-btn" data-lock-open="2">Try Key 2</button>
+            <div class="lock-content" hidden></div>
+          </article>
+
+          <article class="lock-panel" data-lock="3">
+            <div class="lock-top"><span>LOCK 03</span><span class="lock-state">CLOSED</span></div>
+            <h3>Gate 3</h3>
+            <p>Key 3. And two words that came before it. This one does not end the maze. It opens somewhere else.</p>
+            <button class="primary-btn lock-btn" data-lock-open="3">Try the final key</button>
+            <div class="lock-content" hidden></div>
+          </article>
+        </div>
+
+        <p class="lock-note" id="lock-note" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="ending" class="screen" aria-labelledby="ending-title">
+      <div class="screen-inner ending-layout">
+        <div class="ending-light"></div>
+        <p class="eyebrow">THE HOUSE IS QUIET NOW</p>
+        <h2 id="ending-title">The light is different now.</h2>
+        <p>You came back after the last message.</p>
+        <p>Nothing is waiting for you here anymore.</p>
+        <p>It is only quiet.</p>
+        <button class="text-btn large" data-action="hall">Sit in the quiet for a while</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="music-player" class="music-player" aria-live="polite">
+    <div class="music-player-copy">
+      <span class="music-kicker">NOW PLAYING</span>
+      <span id="music-title">Silence</span>
+    </div>
+    <button id="music-toggle" class="music-toggle" type="button" aria-label="Toggle background music">Music: off</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
