@@ -2,7 +2,7 @@ const FINAL_DOC = 'https://docs.google.com/document/d/1upc9vZWQnebAmPONFpKgK_Voh
 const STORAGE_KEY = 'the-door-was-left-open:v6';
 const MAZE_SIZE = 21;
 const START = { row: 1, col: 1 };
-const MOVE_INTERVAL_MS = 12000; // 5 successful steps per minute.
+const MOVE_INTERVAL_MS = 2000;
 
 const APOLOGIES = {
   1: [
